@@ -134,7 +134,10 @@
    zellij
    alpine
    w3m
-
+   ddgr
+   elinks
+   wiki-tui
+ 
    # Media
    yt-dlp
    
