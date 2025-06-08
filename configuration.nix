@@ -122,7 +122,19 @@
    vim
    wget
    git
-   
+   emacs
+   neovim
+ 
+   # TUI
+   lynx
+   yazi # file 
+   fish
+   iamb # matrix client with vim bindings
+   aerc # email
+   zellij
+   alpine
+   w3m
+
    # Media
    yt-dlp
    
