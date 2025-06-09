@@ -124,10 +124,11 @@
    git
    emacs
    neovim
+   neovim-gtk
  
    # TUI
    lynx
-   yazi # file 
+   yazi # file browser
    fish
    iamb # matrix client with vim bindings
    aerc # email
