@@ -138,6 +138,7 @@
    ddgr
    elinks
    wiki-tui
+   micro
  
    # Media
    yt-dlp
