@@ -84,6 +84,7 @@
   users.users.ernstrom = {
     isNormalUser = true;
     description = "Glen Ernstrom";
+    shell = pkgs.fish;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     #  thunderbird
@@ -99,21 +100,23 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; 
-  let 
+  
+    let 
 
-#    R-with-my-packages = rWrapper.override{ packages = with rPackages; [ ggplot2 ggraph dplyr dplyr tidyr survival
-#    tidyverse shiny knitr]; };
+      R-with-my-packages = rWrapper.override{ packages = with rPackages; [ ggplot2 ggraph dplyr dplyr tidyr survival
+      tidyverse shiny knitr]; };
 
- #   RStudio-with-my-packages = rstudioWrapper.override{ packages = with rPackages; [ ggplot2 ggraph dplyr dplyr tidyr 
- #   survival tidyverse shiny knitr]; };
+  #    RStudio-with-my-packages = rstudioWrapper.override{ packages = with rPackages; [ ggplot2 ggraph dplyr dplyr tidyr 
+  #    survival tidyverse shiny knitr]; };
 
-  in
+    in
 
   [
 
    # Science
+
  #  RStudio-with-my-packages
- #  R-with-my-packages
+   R-with-my-packages
    texliveFull
    pymol
    fiji
@@ -139,6 +142,8 @@
    elinks
    wiki-tui
    micro
+   calcurse
+   helix
  
    # Media
    yt-dlp
@@ -206,10 +211,13 @@
    gnome-extension-manager
    pika-backup
    tesseract
+   hplip
 
    # Games
    aisleriot
    lutris
+   wesnoth
+   warzone2100
 
    # Programming
    python313Packages.jupyterlab # for learning, not projects
@@ -297,6 +305,8 @@
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
+
+  programs.fish.enable = true;
 
   services.tailscale.enable = true;
 
