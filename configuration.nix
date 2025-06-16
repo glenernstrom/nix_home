@@ -122,12 +122,9 @@
    fiji
 
    # CLI
-   vim
    wget
    git
-   emacs
-   neovim
-   neovim-gtk
+
  
    # TUI
    lynx
@@ -315,6 +312,16 @@
   '';
 
   programs.fish.enable = true;
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
+
+  programs.vim.enable = true;
+
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
   services.tailscale.enable = true;
 
