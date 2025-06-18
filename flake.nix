@@ -10,7 +10,7 @@
 
 
 
- outputs = { self, nixpkgs, home-manager, ... }:
+ outputs = { self, nixpkgs, ... }@inputs:
     let
        system = "x86_64-linux";
        lib = nixpkgs.lib;
@@ -22,11 +22,11 @@
           modules = [ ./configuration.nix ];
        }; 
      };
-     homeConfigurations = {
-       ernstrom = home-manager.lib.homeManagerConfiguration {
+     homeConfigurations."ernstrom" = 
+       inputs.home-manager.lib.homeManagerConfiguration {
        inherit pkgs;
        modules = [ ./home.nix ];
-      };  
+       extraSpecialArgs = { inherit inputs; };  
      };
     };
 }
