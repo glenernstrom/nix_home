@@ -4,19 +4,29 @@
 
  inputs = {
    nixpkgs.url = "nixpkgs/nixos-unstable";
-  };
-
-
-
- outputs = { self, nixpkgs, ... }:
-    let
-       lib = nixpkgs.lib;
-    in {
-    nixosConfigurations = {
-      catamount = lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./configuration.nix ];
-    }; 
-  };
+   home-manager.url = "github:nix-community/home-manager/master";
+   home-manager.inputs.nixpkgs.follows = "nixpkgs";
  };
+
+
+
+ outputs = { self, nixpkgs, home-manager, ... }:
+    let
+       system = "x86_64-linux";
+       lib = nixpkgs.lib;
+       pkgs = nixpkgs.legacyPackages.${system};
+    in {
+      nixosConfigurations = {
+        catamount = lib.nixosSystem {
+          inherit system;
+          modules = [ ./configuration.nix ];
+       }; 
+     };
+     homeConfigurations = {
+       ernstrom = home-manager.lib.homeManagerConfiguration {
+       inherit pkgs;
+       modules = [ ./home.nix ];
+      };  
+     };
+    };
 }
