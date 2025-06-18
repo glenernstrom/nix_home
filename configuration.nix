@@ -84,7 +84,6 @@
   users.users.ernstrom = {
     isNormalUser = true;
     description = "Glen Ernstrom";
-    shell = pkgs.fish;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     #  thunderbird
@@ -129,7 +128,6 @@
    # TUI
    lynx
    yazi # file browser
-   fish
    iamb # matrix client with vim bindings
    aerc # email
    zellij
@@ -310,15 +308,6 @@
     AllowHybridSleep=no
     AllowSuspendThenHibernate=no
   '';
-
-  programs.fish.enable = true;
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
-
-  programs.vim.enable = true;
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
