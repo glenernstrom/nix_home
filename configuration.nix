@@ -85,6 +85,8 @@
     isNormalUser = true;
     description = "Glen Ernstrom";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.fish;
+    
     packages = with pkgs; [
     #  thunderbird
     ];
@@ -312,6 +314,8 @@
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
+  programs.fish.enable = true;
+  
   services.tailscale.enable = true;
 
   # This value determines the NixOS release from which the default
