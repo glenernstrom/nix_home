@@ -11,8 +11,6 @@ let customPlugins = {
   };
 };
 
-...
-...
 in vim_configurable.customize {
   name = "vim";
   vimrcConfig.customRC = ''
