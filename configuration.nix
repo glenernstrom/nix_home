@@ -84,7 +84,7 @@
   users.users.ernstrom = {
     isNormalUser = true;
     description = "Glen Ernstrom";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "scanner" "lp" "networkmanager" "wheel" ];
     shell = pkgs.fish;
     
     packages = with pkgs; [
@@ -303,7 +303,8 @@
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
   
-  
+  hardware.sane.enable = true;
+    
   systemd.sleep.extraConfig = ''
     AllowSuspend=no
     AllowHibernation=no
