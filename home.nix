@@ -19,7 +19,7 @@
   # environment.
   home = {
     packages = with pkgs; [
-      (import ./nvim-r.nix)
+      (import ./vim.nix)
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
