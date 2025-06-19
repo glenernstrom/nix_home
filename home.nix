@@ -75,10 +75,10 @@
   # Let's configure neovim!
 
   programs.neovim =
-  # let
-  #  toLua = str: "lua << EOF\n${str}\nEOF\n";
-  #  toLuaFile = file: "lua <<EOF\n${builtins.readFile file}\nEOF\n";
-  # in
+   let
+    toLua = str: "lua << EOF\n${str}\nEOF\n";
+    toLuaFile = file: "lua <<EOF\n${builtins.readFile file}\nEOF\n";
+   in
   {
     enable = true;
 
@@ -87,19 +87,81 @@
     vimdiffAlias = true;
 
      extraPackages = with pkgs; [
+      
+      lua-language-server
+      ripgrep
+      fd
+      nil
       wl-clipboard
+
     ];
     
 
     plugins = with pkgs.vimPlugins; [
+    
+      plenary-nvim
+
+#      { 
+#        plugin = nvim-lspconfig;
+#        config = toLuaFile ./user/nvim/plugin/lsp.lua;
+#      }
+
 
       {
         plugin = gruvbox-nvim;
         config = "colorscheme gruvbox";
       }
+      
+      neodev-nvim
 
-    ];
-    
+   {
+       plugin = nvim-cmp;
+       config = toLuaFile ./user/nvim/plugin/cmp.lua;
+    }
+
+      { 
+        plugin = telescope-nvim;
+        config = toLuaFile ./user/nvim/plugin/telescope.lua;
+      }
+
+      telescope-fzf-native-nvim
+
+      cmp_luasnip
+      cmp-nvim-lsp
+
+      luasnip
+      friendly-snippets
+
+      {
+        plugin = (nvim-treesitter.withPlugins (p: [
+          p.tree-sitter-nix
+	        p.tree-sitter-vim
+	        p.tree-sitter-bash
+	        p.tree-sitter-lua
+	        p.tree-sitter-python
+  	      p.tree-sitter-json
+          p.tree-sitter-r
+        ]));
+        config = toLuaFile ./user/nvim/plugin/treesitter.lua;
+      }
+      
+      {
+         plugin = lualine-nvim;
+	     config = toLuaFile ./user/nvim/plugin/lualine.lua;
+      }
+
+      nvim-lspconfig
+      nvim-web-devicons
+      neo-tree-nvim
+
+#      vim-nix
+       
+      ];
+
+    extraLuaConfig = ''
+      ${builtins.readFile ./user/nvim/options.lua}
+    '';
+
   };
           
   # Let Home Manager install and manage itself.
