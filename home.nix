@@ -89,8 +89,8 @@
     extraPackages = with pkgs; [
       
 #     lua-language-server
-#     ripgrep # for telescope
-#     fd      # for telescope
+			ripgrep
+			fd  
 #			nixd
 #     wl-clipboard
 #			marksman
@@ -104,8 +104,8 @@
         config = "colorscheme gruvbox";
       }
       
-#	    plenary-nvim
-#	    telescope-fzf-native-nvim
+	    plenary-nvim
+	    telescope-fzf-native-nvim
 #			neodev-nvim
 #			cmp-nvim-lsp
 #			cmp_luasnip
@@ -117,24 +117,22 @@
 #       config = toLuaFile ./user/nvim/plugin/cmp.lua;
 #			}
 
-#     { 
-#       plugin = telescope-nvim;
-#       config = toLuaFile ./user/nvim/plugin/telescope.lua;
-#			}
+     { 
+       plugin = telescope-nvim;
+       config = toLuaFile ./user/nvim/plugin/telescope.lua;
+			}
 
-#			{
-#        plugin = (nvim-treesitter.withPlugins (p: [
-#         p.tree-sitter-nix
-#					p.tree-sitter-vim
-#					p.tree-sitter-bash
-#				  p.tree-sitter-lua
-#					p.tree-sitter-python
-#  	      p.tree-sitter-json
-#         p.tree-sitter-r
-#					p.tree-sitter-markdown
-#        ]));
-#        config = toLuaFile ./user/nvim/plugin/treesitter.lua;
-#      }
+			{
+        plugin = (nvim-treesitter.withPlugins (p: [
+         p.tree-sitter-nix
+					p.tree-sitter-vim
+					p.tree-sitter-bash
+				  p.tree-sitter-lua
+					p.tree-sitter-python
+  	      p.tree-sitter-json
+        ]));
+        config = toLuaFile ./user/nvim/plugin/treesitter.lua;
+      }
       
       {
         plugin = lualine-nvim;
@@ -142,7 +140,7 @@
       }
 
 			nvim-web-devicons
-#			neo-tree-nvim
+			neo-tree-nvim
 
 #			vim-nix
        
