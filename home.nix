@@ -1,4 +1,4 @@
-{ config, pkgs, inputs , ... }:
+{ config, pkgs , ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -76,7 +76,7 @@
 
   programs.neovim =
    let
-    toLua = str: "lua << EOF\n${str}\nEOF\n";
+#   toLua = str: "lua << EOF\n${str}\nEOF\n";
     toLuaFile = file: "lua <<EOF\n${builtins.readFile file}\nEOF\n";
    in
   {
@@ -86,75 +86,65 @@
     vimAlias = true;
     vimdiffAlias = true;
 
-     extraPackages = with pkgs; [
+    extraPackages = with pkgs; [
       
-      lua-language-server
-      ripgrep
-      fd
-      nil
-      wl-clipboard
+#     lua-language-server
+#     ripgrep # for telescope
+#     fd      # for telescope
+#			nixd
+#     wl-clipboard
+#			marksman
 
     ];
     
-
     plugins = with pkgs.vimPlugins; [
     
-      plenary-nvim
-
-#      { 
-#        plugin = nvim-lspconfig;
-#        config = toLuaFile ./user/nvim/plugin/lsp.lua;
-#      }
-
-
       {
         plugin = gruvbox-nvim;
         config = "colorscheme gruvbox";
       }
       
-      neodev-nvim
+#	    plenary-nvim
+#	    telescope-fzf-native-nvim
+#			neodev-nvim
+#			cmp-nvim-lsp
+#			cmp_luasnip
+#			luasnip
+#			nvim-lspconfig
 
-   {
-       plugin = nvim-cmp;
-       config = toLuaFile ./user/nvim/plugin/cmp.lua;
-    }
+#     {
+#				plugin = nvim-cmp;
+#       config = toLuaFile ./user/nvim/plugin/cmp.lua;
+#			}
 
-      { 
-        plugin = telescope-nvim;
-        config = toLuaFile ./user/nvim/plugin/telescope.lua;
-      }
+#     { 
+#       plugin = telescope-nvim;
+#       config = toLuaFile ./user/nvim/plugin/telescope.lua;
+#			}
 
-      telescope-fzf-native-nvim
-
-      cmp_luasnip
-      cmp-nvim-lsp
-
-      luasnip
-      friendly-snippets
-
-      {
-        plugin = (nvim-treesitter.withPlugins (p: [
-          p.tree-sitter-nix
-	        p.tree-sitter-vim
-	        p.tree-sitter-bash
-	        p.tree-sitter-lua
-	        p.tree-sitter-python
-  	      p.tree-sitter-json
-          p.tree-sitter-r
-        ]));
-        config = toLuaFile ./user/nvim/plugin/treesitter.lua;
-      }
+#			{
+#        plugin = (nvim-treesitter.withPlugins (p: [
+#         p.tree-sitter-nix
+#					p.tree-sitter-vim
+#					p.tree-sitter-bash
+#				  p.tree-sitter-lua
+#					p.tree-sitter-python
+#  	      p.tree-sitter-json
+#         p.tree-sitter-r
+#					p.tree-sitter-markdown
+#        ]));
+#        config = toLuaFile ./user/nvim/plugin/treesitter.lua;
+#      }
       
       {
-         plugin = lualine-nvim;
-	     config = toLuaFile ./user/nvim/plugin/lualine.lua;
+        plugin = lualine-nvim;
+				config = toLuaFile ./user/nvim/plugin/lualine.lua;
       }
 
-      nvim-lspconfig
-      nvim-web-devicons
-      neo-tree-nvim
+			nvim-web-devicons
+#			neo-tree-nvim
 
-#      vim-nix
+#			vim-nix
        
       ];
 
