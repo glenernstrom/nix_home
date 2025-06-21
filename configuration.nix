@@ -212,16 +212,8 @@
 
    # Games
    aisleriot
-   lutris
-   wesnoth
-   warzone2100
 
-   # Programming
-   python313Packages.jupyterlab # for learning, not projects
-   vscode-fhs # not for complex projects
-   
-    
-      
+	 python313Packages.jupyterlab
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
