@@ -75,63 +75,14 @@
   # Let's configure neovim!
 
   programs.neovim =
-   let
-#   toLua = str: "lua << EOF\n${str}\nEOF\n";
-    toLuaFile = file: "lua <<EOF\n${builtins.readFile file}\nEOF\n";
-   in
   {
     enable = true;
 
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-
-    extraPackages = with pkgs; [
-      
-#     lua-language-server
-			ripgrep
-			fd  
-#			nixd
-#     wl-clipboard
-#			marksman
-
-    ];
-    
     plugins = with pkgs.vimPlugins; [
     
       {
         plugin = gruvbox-nvim;
         config = "colorscheme gruvbox";
-      }
-      
-	    plenary-nvim
-	    telescope-fzf-native-nvim
-#			neodev-nvim
-#			cmp-nvim-lsp
-#			cmp_luasnip
-#			luasnip
-#			nvim-lspconfig
-
-#     {
-#				plugin = nvim-cmp;
-#       config = toLuaFile ./user/nvim/plugin/cmp.lua;
-#			}
-
-     { 
-       plugin = telescope-nvim;
-       config = toLuaFile ./user/nvim/plugin/telescope.lua;
-			}
-
-			{
-        plugin = (nvim-treesitter.withPlugins (p: [
-         p.tree-sitter-nix
-					p.tree-sitter-vim
-					p.tree-sitter-bash
-				  p.tree-sitter-lua
-					p.tree-sitter-python
-  	      p.tree-sitter-json
-        ]));
-        config = toLuaFile ./user/nvim/plugin/treesitter.lua;
       }
       
       {
@@ -140,10 +91,7 @@
       }
 
 			nvim-web-devicons
-			neo-tree-nvim
 
-#			vim-nix
-       
       ];
 
     extraLuaConfig = ''
