@@ -1,6 +1,10 @@
-{ config, pkgs , ... }:
+{ config, pkgs , inputs, nixvim, ... }:
 
 {
+  imports = [
+	  inputs.nixvim.homeManagerModules.nixvim
+	];
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "ernstrom";
@@ -72,33 +76,57 @@
     # EDITOR = "emacs";
   };
 
-  # Let's configure neovim!
+ # Let's try nixvim
+ programs.nixvim = {
+  enable = true;
+  opts = {
+    number = true;
+    relativenumber = true;
+    autoindent = true;
+    shiftwidth = 2;
+    tabstop = 2;
+    smartindent = true;
+    smartcase = true;
+    expandtab = true;
+    shiftround = true;
+  };
 
-  programs.neovim =
-  {
-    enable = true;
+  globals = {
+    mapleader = ",";
+  };
 
-    plugins = with pkgs.vimPlugins; [
-    
-      {
-        plugin = gruvbox-nvim;
-        config = "colorscheme gruvbox";
-      }
-      
-      {
-        plugin = lualine-nvim;
-				config = toLuaFile ./user/nvim/plugin/lualine.lua;
-      }
-
-			nvim-web-devicons
-
-      ];
-
-    extraLuaConfig = ''
-      ${builtins.readFile ./user/nvim/options.lua}
-    '';
+  colorschemes.catppuccin.enable = true;
+  plugins.lualine.enable = true;
+ # plugins.oil.enable = true;
 
   };
+
+   
+
+ # Let's configure neovim!
+
+ # programs.neovim =
+ # {
+ #   enable = true;
+
+ #   plugins = with pkgs.vimPlugins; [
+    
+ #     {
+ #       plugin = catppuccin-nvim;
+ #       config = "colorscheme catppuccin-mocha";
+ #     }
+      
+ #     lualine-nvim
+ #     nvim-web-devicons
+
+ #    ];
+
+ #    extraLuaConfig = ''
+ #      ${builtins.readFile ./user/nvim/options.lua}
+ #	${builtins.readFile ./user/nvim/plugin/lualine.lua}
+ #   '';
+
+ #  };
           
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
