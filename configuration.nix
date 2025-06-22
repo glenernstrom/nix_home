@@ -16,7 +16,7 @@
       ./system/packages/multimedia.nix
       ./system/packages/tui.nix
       ./system/packages/games.nix
-      ./system/packages/utilites.nix
+      ./system/packages/utilities.nix
       ./system/packages/peripherals.nix
     ];
 
@@ -67,9 +67,6 @@
     layout = "us";
     variant = "";
   };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -137,8 +134,6 @@
   # Enalbe flatpak
   services.flatpak.enable = true;
 
-  hardware.sane.enable = true;
-    
   systemd.sleep.extraConfig = ''
     AllowSuspend=no
     AllowHibernation=no
