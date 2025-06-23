@@ -97,37 +97,25 @@
 
   colorschemes.catppuccin.enable = true;
   plugins.lualine.enable = true;
- # plugins.oil.enable = true;
+  plugins.treesitter = {
+    enable = true;
+
+    grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+      bash
+      json
+      lua
+      nix
+      markdown
+      xml
+      latex
+    ];
+    };
+
+  # plugins.oil.enable = true;
 
   };
 
-   
 
- # Let's configure neovim!
-
- # programs.neovim =
- # {
- #   enable = true;
-
- #   plugins = with pkgs.vimPlugins; [
-    
- #     {
- #       plugin = catppuccin-nvim;
- #       config = "colorscheme catppuccin-mocha";
- #     }
-      
- #     lualine-nvim
- #     nvim-web-devicons
-
- #    ];
-
- #    extraLuaConfig = ''
- #      ${builtins.readFile ./user/nvim/options.lua}
- #	${builtins.readFile ./user/nvim/plugin/lualine.lua}
- #   '';
-
- #  };
-          
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
