@@ -34,7 +34,7 @@
    R-with-my-packages
    python313Packages.numpy
    texliveFull
-   pymol
+  # pymol
    fiji
   ];
 }
