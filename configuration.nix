@@ -13,11 +13,12 @@
       ./system/packages/communications.nix
       ./system/packages/graphics.nix
       ./system/packages/writing.nix
-      ./system/packages/multimedia.nix
+      ./system/packages/video.nix
       ./system/packages/tui.nix
       ./system/packages/games.nix
       ./system/packages/utilities.nix
       ./system/packages/peripherals.nix
+      ./system/packages/audio.nix
     ];
 
   # Enable flakes
