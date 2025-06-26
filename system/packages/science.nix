@@ -32,6 +32,7 @@
   [
    RStudio-with-my-packages
    R-with-my-packages
+   python313Packages.numpy
    texliveFull
    pymol
    fiji
