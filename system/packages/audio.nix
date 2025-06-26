@@ -3,8 +3,10 @@
 environment.systemPackages = with pkgs; 
   [
    gnome-podcasts
-   shotwave
+   shortwave
    blanket
+   high-tide
+   audacity
   ];
 }
 
