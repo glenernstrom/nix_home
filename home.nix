@@ -108,6 +108,7 @@
       markdown
       xml
       latex
+      python
     ];
     };
 
