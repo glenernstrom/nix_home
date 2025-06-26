@@ -9,7 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./system/nvidia.nix
-      ./system/packages/science.nix
+      # ./system/packages/science.nix
       ./system/packages/communications.nix
       ./system/packages/graphics.nix
       ./system/packages/writing.nix
