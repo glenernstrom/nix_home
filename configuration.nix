@@ -19,6 +19,7 @@
       ./system/packages/utilities.nix
       ./system/packages/peripherals.nix
       ./system/packages/audio.nix
+      ./system/packages/reading.nix
     ];
 
   # Enable flakes
