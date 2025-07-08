@@ -10,5 +10,6 @@ environment.systemPackages = with pkgs;
     gnome-tweaks
     gdm-settings
     gnome-extension-manager
+    chromium
   ];
 }
