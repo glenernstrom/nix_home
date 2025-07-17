@@ -8,6 +8,8 @@
      cozy
     # pdfarranger
      papers
+     espeak
+     freetts
      ];
 }
 
