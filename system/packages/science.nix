@@ -13,7 +13,15 @@
             survival
             tidyverse
             shiny
-            knitr ];
+            knitr
+            car
+            DHARMa
+            emmeans
+            NHANES
+            faraway
+            DescTools
+            performance
+            ];
          };
 
       RStudio-with-my-packages = rstudioWrapper.override {
@@ -25,16 +33,20 @@
           survival
           tidyverse
           shiny
-          knitr ]; 
+          knitr
+          car
+          DHARMa
+          emmeans
+          faraway
+          DescTools
+          performance
+          ]; 
         };
     in
 
   [
    RStudio-with-my-packages
    R-with-my-packages
-   python313Packages.numpy
-   texliveFull
-  # pymol
    fiji
   ];
 }

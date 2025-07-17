@@ -2,11 +2,9 @@
 {
   environment.systemPackages = with pkgs; 
     [
-      texliveFull
+    # texliveFull
       libreoffice
       texmaker
-      citations
-      logseq
       papers
     ];
 }
