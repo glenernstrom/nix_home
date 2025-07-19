@@ -49,5 +49,6 @@
    RStudio-with-my-packages
    R-with-my-packages
    fiji
+  # pymol
   ];
 }

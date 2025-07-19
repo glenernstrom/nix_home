@@ -8,6 +8,7 @@
       element-desktop
       mumble
       aerc
+      zoom-us
     ]; 
   }
 

@@ -20,7 +20,7 @@
       ./system/packages/peripherals.nix
       ./system/packages/audio.nix
       ./system/packages/reading.nix
-      ./system/packages/planing.nix
+      ./system/packages/planning.nix
     ];
 
   # Enable flakes
@@ -158,7 +158,8 @@
     "net.ipv6.conf.all.forwarding" = 1;
     };
 
-
+  nix.optimise.automatic = true;
+  nix.optimise.dates = [ "03:45" ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

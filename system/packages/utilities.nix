@@ -12,5 +12,6 @@ environment.systemPackages = with pkgs;
     gdm-settings
     gnome-extension-manager
     chromium
+    hydra-check
   ];
 }
