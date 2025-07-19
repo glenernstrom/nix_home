@@ -20,6 +20,7 @@
       ./system/packages/peripherals.nix
       ./system/packages/audio.nix
       ./system/packages/reading.nix
+      ./system/packages/planing.nix
     ];
 
   # Enable flakes

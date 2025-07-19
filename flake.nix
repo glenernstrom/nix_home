@@ -3,11 +3,11 @@
  description = "My first flake!";
 
  inputs = {
-   nixpkgs.url = "nixpkgs/nixos-25.05";
-#  home-manager.url = "github:nix-community/home-manager/master";
-#   home-manager.inputs.nixpkgs.follows = "nixpkgs";
-#	 nixvim.url = "github:nix-community/nixvim";
-#	 nixvim.inputs.nixpkgs.follows = "nixpkgs";
+   nixpkgs.url = "nixpkgs/nixos-unstable";
+   home-manager.url = "github:nix-community/home-manager/master";
+   home-manager.inputs.nixpkgs.follows = "nixpkgs";
+	 nixvim.url = "github:nix-community/nixvim";
+	 nixvim.inputs.nixpkgs.follows = "nixpkgs";
  };
 
 
@@ -24,13 +24,13 @@
           modules = [ ./configuration.nix ];
        }; 
      };
-    # homeConfigurations."ernstrom" = 
-		#	 inputs.home-manager.lib.homeManagerConfiguration {
-    #   inherit pkgs;
-    #   modules = [ 
-	  #	   ./home.nix 
-		#		];
-		#	 extraSpecialArgs = { inherit inputs; };
-    # };
+     homeConfigurations."ernstrom" = 
+			 inputs.home-manager.lib.homeManagerConfiguration {
+       inherit pkgs;
+       modules = [ 
+	  	   ./home.nix 
+				];
+			 extraSpecialArgs = { inherit inputs; };
+     };
     };
 }
