@@ -6,7 +6,7 @@
      foliate
      calibre
      cozy
-    # pdfarranger
+     pdfarranger
      papers
      ];
 }

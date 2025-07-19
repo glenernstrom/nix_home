@@ -39,6 +39,7 @@
           emmeans
           faraway
           DescTools
+          NHANES
           performance
           ]; 
         };
