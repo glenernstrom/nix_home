@@ -14,5 +14,6 @@ environment.systemPackages = with pkgs;
   # chromium
     hydra-check
     mousam
+    mission-center
   ];
 }

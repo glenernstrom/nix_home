@@ -112,6 +112,7 @@
   # Put packages here or group into separate modules
   environment.systemPackages = with pkgs; 
   [
+   distrobox
   ];
    
   # Some programs need SUID wrappers, can be configured further or are
@@ -145,14 +146,15 @@
     AllowSuspendThenHibernate=no
   '';
 
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true; 
 
   programs.fish.enable = true;
   
   services.tailscale.enable = true;
   services.tailscale.useRoutingFeatures = "both";
 
+  # This is for setting up an exit node with Tailscale
   boot.kernel.sysctl = {
     "net.ipv4.ip_forward" = 1;
     "net.ipv6.conf.all.forwarding" = 1;
@@ -160,6 +162,13 @@
 
   nix.optimise.automatic = true;
   nix.optimise.dates = [ "03:45" ];
+
+  # Set up Distrobox
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
